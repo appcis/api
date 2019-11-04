@@ -1,0 +1,21 @@
+language: php
+php:
+  - 7.2
+  - 7.3
+
+cache:
+  directories:
+    - $HOME/.composer/cache
+
+notifications:
+  email:
+    on_failure: always
+    on_success: change
+
+before_script:
+  - composer install --no-progress --no-interaction --prefer-dist --no-suggest
+  - cp .env.example .env
+  - php artisan key:generate
+
+script:
+  - vendor/bin/phpunit
