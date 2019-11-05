@@ -31,6 +31,20 @@ abstract class AbstractGrade extends Model
         'img_path' => 'string'
     ];
     
+    /**  
+     * The attributes that are mass assignable.
+     * 
+     * @var array
+     */
+    protected $fillable = [
+        'id',
+        'created_at',
+        'updated_at',
+        'lib_court',
+        'lib_long',
+        'img_path'
+    ];
+    
     public function agents()
     {
         return $this->hasMany('\App\Models\Agent', 'grade_id', 'id');

@@ -31,6 +31,20 @@ abstract class AbstractAgent extends Model
         'grade_id' => 'integer'
     ];
     
+    /**  
+     * The attributes that are mass assignable.
+     * 
+     * @var array
+     */
+    protected $fillable = [
+        'id',
+        'created_at',
+        'updated_at',
+        'nom',
+        'prenom',
+        'grade_id'
+    ];
+    
     public function grade()
     {
         return $this->belongsTo('\App\Models\Grade', 'grade_id', 'id');
