@@ -28,7 +28,9 @@ abstract class AbstractAgent extends Model
         'updated_at' => 'datetime',
         'nom' => 'string',
         'prenom' => 'string',
-        'grade_id' => 'integer'
+        'grade_id' => 'integer',
+        'statut' => 'boolean',
+        'telephone' => 'string'
     ];
     
     /**  
@@ -42,7 +44,9 @@ abstract class AbstractAgent extends Model
         'updated_at',
         'nom',
         'prenom',
-        'grade_id'
+        'grade_id',
+        'statut',
+        'telephone'
     ];
     
     public function grade()

@@ -11,13 +11,51 @@ class AgentService
     /**
      * @param string $nom
      * @param string|null $prenom
+     * @param string|null $telephone
      * @return mixed
      */
-    public function create(string $nom, string $prenom = null)
+    public function create(string $nom, string $prenom = null, string $telephone = null)
     {
-        return Agent::create([
+        $agent =  Agent::create([
             'nom' => $nom,
             'prenom' => $prenom
         ]);
+        if ($telephone) {
+            $agent->telephone = $telephone;
+            $agent->statut = true;
+        } else {
+            $agent->statut = false;
+        }
+        $agent->save();
+        return $agent;
+    }
+
+    public function update(Agent $agent, string $nom = null, string $prenom = null, string $telephone = null)
+    {
+        $agent->update(compact('nom', 'prenom', 'telephone'));
+
+        if ($agent->telephone) {
+            $agent->telephone = $telephone;
+            $agent->statut = true;
+        } else {
+            $agent->statut = false;
+        }
+
+        return $agent;
+    }
+
+    public function active(Agent $agent)
+    {
+        return $agent->update(['statut' => true]);
+    }
+
+    public function desactive(Agent $agent)
+    {
+        return $agent->update(['statut' => false]);
+    }
+
+    public function getAgents()
+    {
+        return Agent::all();
     }
 }
