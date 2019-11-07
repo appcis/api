@@ -10,6 +10,6 @@ class GradeService
 {
     public function getGrades()
     {
-        return Grade::orderBy('ordre')->get();
+        return Grade::orderBy('ordre', 'ASC')->get();
     }
 }

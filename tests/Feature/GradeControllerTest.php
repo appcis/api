@@ -18,6 +18,6 @@ class GradeControllerTest extends TestCase
         $response = $this->get('/api/grade');
 
         $response->assertStatus(200)
-            ->assertJsonCount(50);
+            ->assertJsonCount(50, 'data');
     }
 }

@@ -2,11 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\GradeResource;
 use App\Models\Grade;
+use App\Services\GradeService;
 use Illuminate\Http\Request;
 
 class GradeController extends Controller
 {
+    private $service;
+
+    public function __construct(GradeService $gradeService)
+    {
+        $this->service = $gradeService;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +23,7 @@ class GradeController extends Controller
      */
     public function index()
     {
-        return Grade::all();
+        return GradeResource::collection($this->service->getGrades());
     }
 
     /**
