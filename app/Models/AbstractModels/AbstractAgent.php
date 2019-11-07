@@ -24,13 +24,13 @@ abstract class AbstractAgent extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'created_at' => 'datetime',
-        'updated_at' => 'datetime',
         'nom' => 'string',
         'prenom' => 'string',
         'grade_id' => 'integer',
         'statut' => 'boolean',
-        'telephone' => 'string'
+        'telephone' => 'string',
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime'
     ];
     
     /**  
@@ -40,13 +40,13 @@ abstract class AbstractAgent extends Model
      */
     protected $fillable = [
         'id',
-        'created_at',
-        'updated_at',
         'nom',
         'prenom',
         'grade_id',
         'statut',
-        'telephone'
+        'telephone',
+        'created_at',
+        'updated_at'
     ];
     
     public function grade()

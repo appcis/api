@@ -24,10 +24,10 @@ abstract class AbstractSms extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'created_at' => 'datetime',
-        'updated_at' => 'datetime',
         'titre' => 'string',
-        'contenu' => 'string'
+        'contenu' => 'string',
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime'
     ];
     
     public function agents()

@@ -24,11 +24,12 @@ abstract class AbstractGrade extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'created_at' => 'datetime',
-        'updated_at' => 'datetime',
         'lib_court' => 'string',
         'lib_long' => 'string',
-        'img_path' => 'string'
+        'img_path' => 'string',
+        'ordre' => 'integer',
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime'
     ];
     
     /**  
@@ -38,11 +39,12 @@ abstract class AbstractGrade extends Model
      */
     protected $fillable = [
         'id',
-        'created_at',
-        'updated_at',
         'lib_court',
         'lib_long',
-        'img_path'
+        'img_path',
+        'ordre',
+        'created_at',
+        'updated_at'
     ];
     
     public function agents()
