@@ -3,6 +3,9 @@ php:
   - 7.2
   - 7.3
 
+services:
+  - postgresql
+
 cache:
   directories:
     - $HOME/.composer/cache
@@ -14,8 +17,10 @@ notifications:
 
 before_script:
   - composer install --no-progress --no-interaction --prefer-dist --no-suggest
-  - cp .env.example .env
+  - psql -c 'create database travis_ci_test;' -U postgres
+  - cp .env.travis .env
   - php artisan key:generate
+  - php artisan migrate:fresh
 
 script:
   - vendor/bin/phpunit
