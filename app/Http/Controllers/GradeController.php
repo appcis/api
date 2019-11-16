@@ -6,6 +6,7 @@ use App\Http\Resources\GradeResource;
 use App\Models\Grade;
 use App\Services\GradeService;
 use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Http\Response;
 
 class GradeController extends Controller
@@ -20,11 +21,11 @@ class GradeController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return Response
+     * @return AnonymousResourceCollection
      */
     public function index()
     {
-        return response(GradeResource::collection($this->service->getGrades()));
+        return GradeResource::collection($this->service->getGrades());
     }
 
     /**
