@@ -6,6 +6,7 @@ use App\Http\Resources\GradeResource;
 use App\Models\Grade;
 use App\Services\GradeService;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class GradeController extends Controller
 {
@@ -19,18 +20,18 @@ class GradeController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function index()
     {
-        return GradeResource::collection($this->service->getGrades());
+        return response(GradeResource::collection($this->service->getGrades()));
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function store(Request $request)
     {
@@ -41,7 +42,7 @@ class GradeController extends Controller
      * Display the specified resource.
      *
      * @param Grade $grade
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function show(Grade $grade)
     {
@@ -53,7 +54,7 @@ class GradeController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param Grade $grade
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function update(Request $request, Grade $grade)
     {
@@ -64,7 +65,7 @@ class GradeController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Model\Grade  $grade
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function destroy(Grade $grade)
     {
