@@ -23,61 +23,37 @@
 <div class="content">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-md-6">
                 <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-
-                        <p class="card-text">
-                            Some quick example text to build on the card title and make up the bulk of the card's
-                            content.
-                        </p>
-
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
+                    <!-- /.card-header -->
+                    <div class="card-body p-0">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th style="width: 10px">#</th>
+                                <th>Galon</th>
+                                <th>Libellé court</th>
+                                <th>Libellé long</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                @forelse($grades as $grade)
+                                    <tr>
+                                        <td>{{ $grade->id }}</td>
+                                        <td></td>
+                                        <td>{{ $grade->lib_court }}</td>
+                                        <td>{{ $grade->lib_long }}</td>
+                                    </tr>
+                                @empty
+                                @endforelse
+                            </tbody>
+                        </table>
                     </div>
+                    <!-- /.card-body -->
                 </div>
-
-                <div class="card card-primary card-outline">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-
-                        <p class="card-text">
-                            Some quick example text to build on the card title and make up the bulk of the card's
-                            content.
-                        </p>
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
-                    </div>
-                </div><!-- /.card -->
+                <!-- /.card -->
             </div>
-            <!-- /.col-md-6 -->
-            <div class="col-lg-6">
-                <div class="card">
-                    <div class="card-header">
-                        <h5 class="m-0">Featured</h5>
-                    </div>
-                    <div class="card-body">
-                        <h6 class="card-title">Special title treatment</h6>
-
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-
-                <div class="card card-primary card-outline">
-                    <div class="card-header">
-                        <h5 class="m-0">Featured</h5>
-                    </div>
-                    <div class="card-body">
-                        <h6 class="card-title">Special title treatment</h6>
-
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            <!-- /.col-md-6 -->
+            <!-- /.col -->
         </div>
         <!-- /.row -->
     </div><!-- /.container-fluid -->

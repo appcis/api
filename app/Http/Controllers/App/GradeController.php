@@ -25,7 +25,7 @@ class GradeController extends Controller
     {
         $grades = $this->service->getGrades();
 
-        return view('grade.index');
+        return view('grade.index', compact('grades'));
     }
 
     /**
