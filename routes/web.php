@@ -11,15 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes(['verify' => true]);
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::namespace('App')->middleware('auth')->group(function () {
 
-Route::namespace('App')->group(function () {
-    Route::resource('/grade', 'GradeController')->only(['index']);
+    Route::get('/', function () {
+        return view('blank');
+    });
+
+    Route::resource('/grade', 'GradeController')
+        ->only(['index'])
+        ->middleware('can:manage-grades');
+
 });
 
