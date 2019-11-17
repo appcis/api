@@ -13,8 +13,11 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::apiResource('agent', 'AgentController')->except(['destroy']);
-Route::apiResource('grade', 'GradeController')->only(['index']);
+Route::namespace('api')->group(function () {
+    Route::apiResource('agent', 'AgentController')->except(['destroy']);
+    Route::apiResource('grade', 'GradeController')->only(['index']);
+});
+
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
