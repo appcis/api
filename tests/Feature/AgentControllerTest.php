@@ -12,18 +12,6 @@ class AgentControllerTest extends TestCase
     use WithFaker;
     use RefreshDatabase;
 
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
-    public function testExample()
-    {
-        $response = $this->get('/');
-
-        $response->assertStatus(200);
-    }
-
     public function testIndex()
     {
         factory(Agent::class, 50)->create();
