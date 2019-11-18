@@ -23,5 +23,7 @@ Route::namespace('App')->middleware('auth')->group(function () {
         ->only(['index'])
         ->middleware('can:manage-grades');
 
+    Route::resource('/agent', 'AgentController')
+        ->middleware('can:manage-agents');
 });
 
