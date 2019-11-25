@@ -38,5 +38,9 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('manage-agents', function ($user) {
             return $user->permissions === 'admin';
         });
+
+        Gate::define('manage-groupes', function ($user) {
+            return $user->permissions === 'admin';
+        });
     }
 }

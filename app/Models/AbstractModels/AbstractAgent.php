@@ -58,4 +58,9 @@ abstract class AbstractAgent extends Model
     {
         return $this->belongsToMany('\App\Models\Sms', 'agent_sms', 'agent_id', 'sms_id')->withPivot('auteur');
     }
+    
+    public function groupes()
+    {
+        return $this->belongsToMany('\App\Models\Groupe', 'groupe_has_agents', 'agent_id', 'groupe_id');
+    }
 }
