@@ -45,6 +45,6 @@ abstract class AbstractGroupe extends Model
     
     public function agents()
     {
-        return $this->belongsToMany('\App\Models\Agent', 'groupe_has_agents', 'groupe_id', 'agent_id');
+        return $this->belongsToMany('\App\Models\Agent', 'agent_groupes', 'groupe_id', 'agent_id');
     }
 }

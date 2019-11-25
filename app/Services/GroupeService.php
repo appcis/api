@@ -24,4 +24,10 @@ class GroupeService
     {
         return Groupe::orderBy('libelle')->get();
     }
+
+    public function setAgents(Groupe $groupe, array $agents)
+    {
+        $groupe->agents()->sync($agents);
+        return true;
+    }
 }

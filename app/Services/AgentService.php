@@ -56,6 +56,6 @@ class AgentService
 
     public function getAgents()
     {
-        return Agent::all();
+        return Agent::orderBy('nom')->get();
     }
 }

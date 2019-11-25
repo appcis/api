@@ -2,6 +2,7 @@
 
 namespace Tests\Unit;
 
+use App\Models\Agent;
 use App\Models\Groupe;
 use App\Services\GroupeService;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -60,5 +61,18 @@ class GroupeServiceTest extends TestCase
 
         $this->assertInstanceOf(Groupe::class, $upd_groupe);
         $this->assertEquals($description, $upd_groupe->description);
+    }
+
+    public function testSetAgents()
+    {
+        /** @var Groupe $groupe */
+        $groupe = factory(Groupe::class)->create();
+        $agents = factory(Agent::class, 5)->create()
+            ->pluck('id')
+            ->all();
+
+        $this->service->setAgents($groupe, $agents);
+
+        $this->assertCount(5, $groupe->agents);
     }
 }

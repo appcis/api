@@ -4,6 +4,7 @@ namespace App\Http\Controllers\App;
 
 use App\Http\Controllers\Controller;
 use App\Models\Groupe;
+use App\Services\AgentService;
 use App\Services\GroupeService;
 use Illuminate\Http\Request;
 
@@ -31,12 +32,14 @@ class GroupeController extends Controller
     /**
      * Show the form for creating a new resource.
      *
+     * @param AgentService $agentService
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(AgentService $agentService)
     {
         $groupe = new Groupe();
-        return view('groupe.form', compact('groupe'));
+        $agents = $agentService->getAgents();
+        return view('groupe.form', compact('groupe', 'agents'));
     }
 
     /**
@@ -68,9 +71,10 @@ class GroupeController extends Controller
      * @param  \App\Models\Groupe  $groupe
      * @return \Illuminate\Http\Response
      */
-    public function edit(Groupe $groupe)
+    public function edit(AgentService $agentService, Groupe $groupe)
     {
-        return view('groupe.form', compact('groupe'));
+        $agents = $agentService->getAgents();
+        return view('groupe.form', compact('groupe', 'agents'));
     }
 
     /**
@@ -83,6 +87,11 @@ class GroupeController extends Controller
     public function update(Request $request, Groupe $groupe)
     {
         $this->service->update($groupe, $request->libelle,$request->description);
+
+        if ($request->has('agents')) {
+            $this->service->setAgents($groupe, $request->agents);
+        }
+
         return redirect(route('groupe.index'));
     }
 

@@ -8,14 +8,14 @@ namespace App\Models\AbstractModels;
 
 use Illuminate\Database\Eloquent\Relations\Pivot;
 
-abstract class AbstractGroupeHasAgent extends Pivot
+abstract class AbstractAgentGroupe extends Pivot
 {
     /**  
      * Primary key name.
      * 
      * @var string
      */
-    public $primaryKey = 'agent_id';
+    public $primaryKey = 'groupe_id';
     
     /**  
      * Primary key type.
@@ -44,7 +44,7 @@ abstract class AbstractGroupeHasAgent extends Pivot
      * @var array
      */
     protected $casts = [
-        'agent_id' => 'integer',
-        'groupe_id' => 'integer'
+        'groupe_id' => 'integer',
+        'agent_id' => 'integer'
     ];
 }
