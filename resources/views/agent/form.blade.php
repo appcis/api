@@ -31,6 +31,7 @@
                         @if($agent->id)
                             @method('PUT')
                         @endif
+                        <input type="hidden" value="{{ $agent->statut ? 1 : 0 }}" name="statut">
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="nom">Nom</label>
@@ -48,7 +49,20 @@
                         <!-- /.card-body -->
 
                         <div class="card-footer">
-                            <button type="submit" class="btn btn-primary">Valider</button>
+                            <div class="d-flex justify-content-between">
+                                <div class="col p-0">
+                                    @if($agent->statut)
+                                        <button type="button" class="btn btn-danger desactiver">Desactiver</button>
+                                    @elseif(!$agent->statut)
+                                        <button type="button" class="btn btn-success activer">Activer</button>
+                                    @endif
+                                </div>
+                                <div class="col text-right p-0">
+                                    <a type="button" href="{{ URL::previous() }}" class="btn btn-default">Annuler</a>
+                                    <button type="submit" class="btn btn-success">Valider</button>
+                                </div>
+                            </div>
+
                         </div>
                     </form>
                 </div>

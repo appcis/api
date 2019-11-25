@@ -84,7 +84,16 @@ class AgentController extends Controller
     public function update(Request $request, Agent $agent)
     {
         $this->service->update($agent, $request->nom, $request->prenom, $request->telephone);
-        return redirect(route('agent.index'));
+        if ($request->has('statut')) {
+            if ($request->statut == 0) {
+                $this->service->desactive($agent);
+            } else {
+                $this->service->active($agent);
+            }
+        }
+        return redirect()
+            ->route('agent.index')
+            ->with('success', 'Modification enregistrée');
     }
 
     /**
