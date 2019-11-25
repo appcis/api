@@ -14,6 +14,7 @@ notifications:
   email:
     on_failure: always
     on_success: change
+  slack: davenel:B2FTmjvgP51RNWcw1nChPj1z
 
 before_script:
   - composer install --no-progress --no-interaction --prefer-dist --no-suggest
