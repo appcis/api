@@ -23,9 +23,10 @@ class GroupeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $groupes = $this->service->getAll();
+
         return view('groupe.index', compact('groupes'));
     }
 
@@ -51,7 +52,9 @@ class GroupeController extends Controller
     public function store(Request $request)
     {
         $this->service->create($request->libelle,$request->description);
-        return redirect(route('groupe.index'));
+        return redirect()
+            ->route('groupe.index')
+            ->with('success', 'Groupe enregistré');
     }
 
     /**
@@ -92,7 +95,9 @@ class GroupeController extends Controller
             $this->service->setAgents($groupe, $request->agents);
         }
 
-        return redirect(route('groupe.index'));
+        return redirect()
+            ->route('groupe.index')
+            ->with('success', 'Modification enregistrée');
     }
 
     /**
