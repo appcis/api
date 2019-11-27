@@ -103,4 +103,19 @@ class AgentServiceTest extends TestCase
         $this->assertCount(50, $agents);
         $this->assertInstanceOf(Collection::class, $agents);
     }
+
+    public function testGetAgentsActive()
+    {
+        factory(Agent::class, 50)->create();
+        factory(Agent::class, 8)->create(['statut' => false]);
+
+        $service = new AgentService();
+        $agents = $service->getAgents();
+        $agents_all = $service->getAgents(true);
+
+        $this->assertCount(50, $agents);
+        $this->assertCount(58, $agents_all);
+        $this->assertInstanceOf(Collection::class, $agents);
+        $this->assertInstanceOf(Collection::class, $agents_all);
+    }
 }

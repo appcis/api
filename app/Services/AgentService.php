@@ -54,8 +54,12 @@ class AgentService
         return $agent->update(['statut' => false]);
     }
 
-    public function getAgents()
+    public function getAgents($desactiver = false)
     {
-        return Agent::orderBy('nom')->get();
+        if ($desactiver) {
+            return Agent::orderBy('nom')->get();
+        }
+
+        return Agent::where('statut', true)->orderBy('nom')->get();
     }
 }

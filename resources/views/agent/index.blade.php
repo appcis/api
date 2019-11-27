@@ -30,7 +30,7 @@
                         <table class="table">
                             <thead>
                             <tr>
-                                <th style="width: 10px">#</th>
+                                <th style="width: 10px">Statut</th>
                                 <th>Grade</th>
                                 <th>Nom</th>
                                 <th>Téléphone</th>
@@ -40,7 +40,13 @@
                             <tbody>
                                 @forelse($agents as $agent)
                                     <tr>
-                                        <td>{{ $agent->id }}</td>
+                                        <td class="text-center">
+                                            @if($agent->statut)
+                                                <i class="fas fa-check text-success"></i>
+                                            @else
+                                                <i class="fas fa-times text-danger"></i>
+                                            @endif
+                                        </td>
                                         <td></td>
                                         <td>{{ $agent->nom }}</td>
                                         <td>{{ $agent->telephone }}</td>

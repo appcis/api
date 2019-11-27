@@ -24,7 +24,7 @@ class AgentController extends Controller
      */
     public function index()
     {
-        $agents = $this->service->getAgents();
+        $agents = $this->service->getAgents(true);
         return view('agent.index', compact('agents'));
     }
 
