@@ -28,5 +28,8 @@ Route::namespace('App')->middleware('auth')->group(function () {
 
     Route::resource('/groupe', 'GroupeController')
         ->middleware('can:manage-groupes');
+
+    Route::resource('/user', 'UserController')
+        ->middleware('can:manage-users');
 });
 
