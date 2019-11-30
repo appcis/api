@@ -5,10 +5,13 @@ namespace App\Http\Controllers\App;
 use App\Http\Controllers\Controller;
 use App\Services\UserService;
 use App\User;
+use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    use SendsPasswordResetEmails;
+
     /** @var UserService $service */
     private $service;
 
@@ -107,5 +110,10 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         //
+    }
+
+    public function resetPassword(User $user)
+    {
+        $this->service->resetPassword($user);
     }
 }

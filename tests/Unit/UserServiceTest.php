@@ -4,8 +4,10 @@ namespace Tests\Unit;
 
 use App\Services\UserService;
 use App\User;
+use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Support\Facades\Notification;
 use Tests\TestCase;
 
 class UserServiceTest extends TestCase
@@ -85,5 +87,18 @@ class UserServiceTest extends TestCase
 
         $upd_user = $this->service->update($user, $name);
         $this->assertEquals($name, $upd_user->name);
+    }
+
+    public function testResetPassword()
+    {
+        Notification::fake();
+
+        $user = factory(User::class)->create();
+
+        $this->service->resetPassword($user);
+
+        Notification::assertSentTo(
+            [$user], ResetPassword::class
+        );
     }
 }

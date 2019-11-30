@@ -48,8 +48,12 @@
                                 <div class="d-flex justify-content-between">
                                     <div class="col p-0">
                                         @if($user->id)
-                                            <button type="button" class="btn btn-danger desactiver">Desactiver</button>
-                                            <button type="button" class="btn btn-success activer">Activer</button>
+                                            @if($user->active)
+                                                <button type="button" class="btn btn-danger desactiver">Desactiver</button>
+                                            @else
+                                                <button type="button" class="btn btn-success activer">Activer</button>
+                                            @endif
+                                            <a href="{{ route('user.resetPassword', $user) }}" type="button" class="btn btn-primary" role="button">Réinitialiser le mot de passe</a>
                                         @endif
                                     </div>
                                     <div class="col text-right p-0">

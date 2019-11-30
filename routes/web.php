@@ -23,13 +23,13 @@ Route::namespace('App')->middleware('auth')->group(function () {
         ->only(['index'])
         ->middleware('can:manage-grades');
 
-    Route::resource('/agent', 'AgentController')
-        ->middleware('can:manage-agents');
+    Route::resource('/agent', 'AgentController')->middleware('can:manage-agents');
 
-    Route::resource('/groupe', 'GroupeController')
-        ->middleware('can:manage-groupes');
+    Route::resource('/groupe', 'GroupeController')->middleware('can:manage-groupes');
 
-    Route::resource('/user', 'UserController')
+    Route::get('/user/{user}/resetPassword', 'UserController@resetPassword')
+        ->name('user.resetPassword')
         ->middleware('can:manage-users');
+    Route::resource('/user', 'UserController')->middleware('can:manage-users');
 });
 

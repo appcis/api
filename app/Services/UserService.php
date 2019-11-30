@@ -5,11 +5,16 @@ namespace App\Services;
 
 
 use App\User;
+use Illuminate\Auth\Passwords\DatabaseTokenRepository;
+use Illuminate\Auth\Passwords\TokenRepositoryInterface;
+use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 
 class UserService
 {
+    use SendsPasswordResetEmails;
+
     public function create(string $email, string $name, string $password = null) : User
     {
         if (!$password)
@@ -73,5 +78,11 @@ class UserService
         }
         $user->save();
         return $user;
+    }
+
+    public function resetPassword(User $user)
+    {
+        $this->broker()->sendResetLink($user->toArray());
+        return true;
     }
 }
