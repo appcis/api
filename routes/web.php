@@ -31,5 +31,8 @@ Route::namespace('App')->middleware('auth')->group(function () {
         ->name('user.resetPassword')
         ->middleware('can:manage-users');
     Route::resource('/user', 'UserController')->middleware('can:manage-users');
+
+    Route::resource('/sms', 'SmsController')
+        ->only(['create', 'store']);
 });
 
