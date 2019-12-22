@@ -12,4 +12,8 @@ $(function () {
         $(this).closest('form').submit();
     });
 
+    $('tr[data-href]').click(function (e) {
+        $(location).attr('href', $(e.currentTarget).data('href'));
+    })
+
 });

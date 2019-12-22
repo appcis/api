@@ -6,12 +6,12 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0 text-dark">Nouvel agent</h1>
+                <h1 class="m-0 text-dark">@if($agent->id) Edition @else Nouvel @endif agent</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active">Starter Page</li>
+                    <li class="breadcrumb-item"><a href="{{ route('agent.index') }}">Agent</a></li>
+                    <li class="breadcrumb-item active">Nouvel agent</li>
                 </ol>
             </div><!-- /.col -->
         </div><!-- /.row -->
@@ -50,14 +50,14 @@
 
                         <div class="card-footer">
                             <div class="d-flex justify-content-between">
-                                <div class="col p-0">
-                                    @if($agent->statut)
+                                <div class="p-0">
+                                    @if($agent->statut && $agent->id)
                                         <button type="button" class="btn btn-danger desactiver">Desactiver</button>
-                                    @elseif(!$agent->statut)
+                                    @elseif(!$agent->statut && $agent->id)
                                         <button type="button" class="btn btn-success activer">Activer</button>
                                     @endif
                                 </div>
-                                <div class="col text-right p-0">
+                                <div class="text-right p-0">
                                     <a type="button" href="{{ URL::previous() }}" class="btn btn-default">Annuler</a>
                                     <button type="submit" class="btn btn-success">Valider</button>
                                 </div>

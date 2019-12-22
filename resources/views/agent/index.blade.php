@@ -10,8 +10,8 @@
             </div><!-- /.col -->
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active">Starter Page</li>
+                    <li class="breadcrumb-item"><a href="#">Agent</a></li>
+                    <li class="breadcrumb-item active">Liste</li>
                 </ol>
             </div><!-- /.col -->
         </div><!-- /.row -->
@@ -30,7 +30,7 @@
                         <table class="table">
                             <thead>
                             <tr>
-                                <th style="width: 10px">Statut</th>
+                                <th></th>
                                 <th>Grade</th>
                                 <th>Nom</th>
                                 <th>Téléphone</th>
@@ -39,7 +39,7 @@
                             </thead>
                             <tbody>
                                 @forelse($agents as $agent)
-                                    <tr>
+                                    <tr data-href="{{ route('agent.edit', $agent) }}">
                                         <td class="text-center">
                                             @if($agent->statut)
                                                 <i class="fas fa-check text-success"></i>
@@ -50,7 +50,6 @@
                                         <td></td>
                                         <td>{{ $agent->nom }}</td>
                                         <td>{{ $agent->telephone }}</td>
-                                        <td><a href="{{ route('agent.edit', $agent) }}" role="button" class="btn btn-xs btn-info"><i class="fas fa-pen"></i></a></td>
                                     </tr>
                                 @empty
                                 @endforelse
