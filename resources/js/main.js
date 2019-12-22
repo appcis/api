@@ -14,6 +14,17 @@ $(function () {
 
     $('tr[data-href]').click(function (e) {
         $(location).attr('href', $(e.currentTarget).data('href'));
-    })
+    });
 
+    //Initialize Select2 Elements
+    $('.select2').select2();
+
+    /*
+    ======== page envoi sms ==========
+     */
+    $('#select_dest_btn').click(function (e) {
+        e.preventDefault();
+        $('#tape_sms_card').hide();
+        $('#select_dest_card').show();
+    });
 });

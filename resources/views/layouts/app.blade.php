@@ -13,6 +13,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="{{ asset('adminlte/plugins/fontawesome-free/css/all.min.css') }}">
+
+    @stack('style_before')
+
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('adminlte/dist/css/adminlte.min.css') }}">
     <!-- Google Font: Source Sans Pro -->
@@ -194,5 +197,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 @if(session('success'))
     <script>toastr.success('{{ session('success') }}')</script>
 @endif
+
+@stack('script')
+
 </body>
 </html>
