@@ -18,7 +18,17 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/Http/Controllers/Api/GroupeController.php">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/Http/Controllers/App/SmsController.php">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/Services/GroupeService.php">
           <value>
             <set />
           </value>
@@ -54,6 +64,16 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/resources/views/sms/form.blade.php">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/tests/Feature/GroupeController.php">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/tests/Unit/GroupeServiceTest.php">
           <value>
             <set />
           </value>

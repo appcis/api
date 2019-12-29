@@ -30,4 +30,9 @@ class GroupeService
         $groupe->agents()->sync($agents);
         return true;
     }
+
+    public function getAgents(Groupe $groupe)
+    {
+        return $groupe->agents()->where('agents.statut', true)->get();
+    }
 }

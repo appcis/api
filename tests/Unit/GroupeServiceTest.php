@@ -75,4 +75,19 @@ class GroupeServiceTest extends TestCase
 
         $this->assertCount(5, $groupe->agents);
     }
+
+    public function testGetAgents()
+    {
+        /** @var Groupe $_groupe */
+        $_groupe = factory(Groupe::class)->create();
+        $_agents = factory(Agent::class, 5)->create();
+        $_agents_unactivate = factory(Agent::class, 5)->create(['statut' => false]);
+
+        $_groupe->agents()->attach($_agents);
+        $_groupe->agents()->attach($_agents_unactivate);
+
+        $agents = $this->service->getAgents($_groupe);
+        $this->assertCount(5, $agents);
+        $this->assertCount(10, Agent::all());
+    }
 }
