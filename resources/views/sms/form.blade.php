@@ -45,7 +45,9 @@
                             <!-- /.card-body -->
 
                             <div class="card-footer d-flex justify-content-end">
-                                <button type="submit" class="btn btn-primary" id="select_dest_btn">Sélectionner les destinataires</button>
+                                <button type="submit" class="btn btn-primary" id="select_dest_btn">Sélectionner les
+                                    destinataires
+                                </button>
                             </div>
                         </div>
                         <!-- /.card -->
@@ -53,53 +55,65 @@
                     <div class="col-md-6">
                         <!-- general form elements -->
                         <div class="card card-primary" id="select_dest_card" style="display: none">
-                            <!-- form start -->
-                            <!-- Bootstrap 4 -->
-                            <!--<div class="card-body">
-                                <div class="form-group">
-                                    <label for="groupes">Choix des destinataires</label>
-                                    <select id="groupes" class="form-control select2" multiple="multiple" style="width: 100%;">
-                                        <option>INC 2</option>
-                                        <option>SAP 2</option>
-                                        <option>COD 2</option>
-                                        <option>Général</option>
-                                        <option>Bureau amicale</option>
-                                        <option>COD 4</option>
-                                    </select>
-                                </div>
-                            </div>-->
-                            <!-- /.card-body -->
                             <div class="card-body">
-                                <div class="form-group">
-                                    <textarea name="message" id="message"
-                                              class="form-control" readonly>lorem ipsum dolor sit amet</textarea>
+                                <div class="form-group d-sm-none">
+                                    <label for="message">Message</label>
+                                    <p class="form-control" id="repeatMessage" readonly></p>
                                 </div>
                                 <div class="form-group">
                                     <label for="groupes">Choix des destinataires</label>
-                                    <div class="custom-control custom-checkbox">
-                                        <input class="custom-control-input" type="checkbox" id="customCheckbox1" value="option1">
-                                        <label for="customCheckbox1" class="custom-control-label">Général</label>
+                                    @forelse($groupes as $groupe)
+                                        <div class="custom-control custom-checkbox">
+                                            <input class="custom-control-input" type="checkbox" id="groupe_{{ $groupe->id ?? $loop->index }}" name="groupe_{{ $groupe->id ?? $loop->index }}"
+                                                   value="true">
+                                            <label for="groupe_{{ $groupe->id ?? $loop->index }}" class="custom-control-label">{{ $groupe->libelle }}</label>
+                                        </div>
+                                    @empty
+                                        Aucun groupe créer
+                                    @endforelse
+                                </div>
+                                <div class="card card-info collapsed-card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Listes des agents</h3>
+
+                                        <div class="card-tools">
+                                            <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
+                                            </button>
+                                        </div>
+                                        <!-- /.card-tools -->
                                     </div>
-                                    <div class="custom-control custom-checkbox">
-                                        <input class="custom-control-input" type="checkbox" id="customCheckbox1" value="option1">
-                                        <label for="customCheckbox1" class="custom-control-label">INC 2</label>
+                                    <!-- /.card-header -->
+                                    <div class="card-body p-2">
+                                        <div class="form-group">
+                                            <div class="row">
+                                                @isset($agents)
+                                                    <div class="col">
+                                                        @foreach($agents as $agent)
+                                                            @if($loop->even)
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="checkbox">
+                                                                    <label class="form-check-label">{{ $agent->nom }}</label>
+                                                                </div>
+                                                            @endif
+                                                        @endforeach
+                                                    </div>
+                                                    <div class="col">
+                                                        @foreach($agents as $agent)
+                                                            @if($loop->odd)
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="checkbox">
+                                                                    <label class="form-check-label">{{ $agent->nom }}</label>
+                                                                </div>
+                                                            @endif
+                                                        @endforeach
+                                                    </div>
+                                                @else
+                                                    Aucun agent créer
+                                                @endisset
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="custom-control custom-checkbox">
-                                        <input class="custom-control-input" type="checkbox" id="customCheckbox1" value="option1">
-                                        <label for="customCheckbox1" class="custom-control-label">SAP 2</label>
-                                    </div>
-                                    <div class="custom-control custom-checkbox">
-                                        <input class="custom-control-input" type="checkbox" id="customCheckbox1" value="option1">
-                                        <label for="customCheckbox1" class="custom-control-label">COD 2</label>
-                                    </div>
-                                    <div class="custom-control custom-checkbox">
-                                        <input class="custom-control-input" type="checkbox" id="customCheckbox1" value="option1">
-                                        <label for="customCheckbox1" class="custom-control-label">COD 4</label>
-                                    </div>
-                                    <div class="custom-control custom-checkbox">
-                                        <input class="custom-control-input" type="checkbox" id="customCheckbox1" value="option1">
-                                        <label for="customCheckbox1" class="custom-control-label">Bureau amicale</label>
-                                    </div>
+                                    <!-- /.card-body -->
                                 </div>
                             </div>
 

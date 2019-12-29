@@ -24,7 +24,10 @@ $(function () {
      */
     $('#select_dest_btn').click(function (e) {
         e.preventDefault();
-        $('#tape_sms_card').hide();
+        if ($(window).width() < 576) {
+            $('#tape_sms_card').hide();
+            $('#repeatMessage').html($('#message').val());
+        }
         $('#select_dest_card').show();
     });
 });
