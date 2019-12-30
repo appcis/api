@@ -24,41 +24,43 @@
                 <div class="col-md-6">
                     <p class="form-control" id="repeatMessage" readonly>Lorem ipsum dolor sit amet</p>
                 </div>
-            </div>
-            <div class="card card-info">
-                <div class="card-header">
-                    <h3 class="card-title">Destinataires</h3>
+                <div class="col-md-6">
+                    <div class="card card-default">
+                        <div class="card-header">
+                            <h3 class="card-title">Destinataires</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body p-0">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Agent</th>
+                                    <th style="width: 50px">Statut</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>Dest 1</td>
+                                    <td><span class="badge bg-danger">Erreur</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Dest 2</td>
+                                    <td><span class="badge bg-primary">En attente</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Dest 3</td>
+                                    <td><span class="badge bg-info">Envoyé</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Dest 4</td>
+                                    <td><span class="badge bg-success">Reçu</span></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
                 </div>
-                <!-- /.card-header -->
-                <div class="card-body p-0">
-                    <table class="table">
-                        <thead>
-                        <tr>
-                            <th>Agent</th>
-                            <th style="width: 50px">Statut</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td>Dest 1</td>
-                            <td><span class="badge bg-danger">Erreur</span></td>
-                        </tr>
-                        <tr>
-                            <td>Dest 2</td>
-                            <td><span class="badge bg-primary">En attente</span></td>
-                        </tr>
-                        <tr>
-                            <td>Dest 3</td>
-                            <td><span class="badge bg-info">Envoyé</span></td>
-                        </tr>
-                        <tr>
-                            <td>Dest 4</td>
-                            <td><span class="badge bg-success">Reçu</span></td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <!-- /.card-body -->
             </div>
         </div>
     </div>

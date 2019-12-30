@@ -26,8 +26,7 @@
 
     <div class="content">
         <div class="container-fluid">
-            <form role="form" method="POST"
-                  action="#">
+            <form role="form" method="POST" action="#">
                 @csrf
                 <div class="row">
                     <div class="col-md-6">
@@ -64,20 +63,24 @@
                                     <label for="groupes">Choix des destinataires</label>
                                     @forelse($groupes as $groupe)
                                         <div class="custom-control custom-checkbox">
-                                            <input class="custom-control-input" type="checkbox" id="groupe_{{ $groupe->id ?? $loop->index }}" name="groupe_{{ $groupe->id ?? $loop->index }}"
+                                            <input class="custom-control-input" type="checkbox"
+                                                   id="groupe_{{ $groupe->id ?? $loop->index }}"
+                                                   name="groupe_{{ $groupe->id ?? $loop->index }}"
                                                    value="true">
-                                            <label for="groupe_{{ $groupe->id ?? $loop->index }}" class="custom-control-label">{{ $groupe->libelle }}</label>
+                                            <label for="groupe_{{ $groupe->id ?? $loop->index }}"
+                                                   class="custom-control-label">{{ $groupe->libelle }}</label>
                                         </div>
                                     @empty
                                         Aucun groupe créer
                                     @endforelse
                                 </div>
-                                <div class="card card-info collapsed-card">
+                                <div class="card card-default collapsed-card">
                                     <div class="card-header">
                                         <h3 class="card-title">Listes des agents</h3>
 
                                         <div class="card-tools">
-                                            <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
+                                            <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
+                                                    class="fas fa-plus"></i>
                                             </button>
                                         </div>
                                         <!-- /.card-tools -->
@@ -92,7 +95,8 @@
                                                             @if($loop->even)
                                                                 <div class="form-check">
                                                                     <input class="form-check-input" type="checkbox">
-                                                                    <label class="form-check-label">{{ $agent->nom }}</label>
+                                                                    <label
+                                                                        class="form-check-label">{{ $agent->nom }}</label>
                                                                 </div>
                                                             @endif
                                                         @endforeach
@@ -102,7 +106,8 @@
                                                             @if($loop->odd)
                                                                 <div class="form-check">
                                                                     <input class="form-check-input" type="checkbox">
-                                                                    <label class="form-check-label">{{ $agent->nom }}</label>
+                                                                    <label
+                                                                        class="form-check-label">{{ $agent->nom }}</label>
                                                                 </div>
                                                             @endif
                                                         @endforeach

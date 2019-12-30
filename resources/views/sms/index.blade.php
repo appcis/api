@@ -25,36 +25,63 @@
     <div class="content">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-6">
-                    <div class="card">
-                        <!-- /.card-header -->
-                        <div class="card-body p-0">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th>Message</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td class="position-relative">
-                                        <div class="ribbon-wrapper ribbon-lg">
-                                            <div class="ribbon bg-primary">
-                                                12/12/2019
-                                            </div>
-                                        </div>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec egestas arcu id
-                                        magna efficitur, sit amet imperdiet ipsum vulputate. Ut vulputate auctor nisi,
-                                        dapibus semper justo efficitur in. Maecenas efficitur metus eu elementum
-                                        consequat. Duis posuere.
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
+                <div class="col-md-12">
+                    <div class="callout callout-info">
+                        <p>There is a problem that we need to fix. A wonderful serenity has taken possession of my
+                            entire
+                            soul,
+                            like these sweet mornings of spring which I enjoy with my whole heart.</p>
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <a class="btn btn-primary btn-sm" href="#">Detail</a>
+                            </div>
+                            <div>
+                                <small class="text-muted">22/12/2019 15:00</small>
+                            </div>
                         </div>
-                        <!-- /.card-body -->
                     </div>
-                    <!-- /.card -->
+                    <div class="callout callout-danger">
+                        <p>There is a problem that we need to fix. A wonderful serenity has taken possession of my
+                            entire
+                            soul,
+                            like these sweet mornings of spring which I enjoy with my whole heart.</p>
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <a class="btn btn-primary btn-sm" href="#">Detail</a>
+                            </div>
+                            <div>
+                                <small class="text-muted">22/12/2019 15:00</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="callout callout-success">
+                        <p>There is a problem that we need to fix. A wonderful serenity has taken possession of my
+                            entire
+                            soul,
+                            like these sweet mornings of spring which I enjoy with my whole heart.</p>
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <a class="btn btn-primary btn-sm" href="#">Detail</a>
+                            </div>
+                            <div>
+                                <small class="text-muted">22/12/2019 15:00</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="callout callout-success">
+                        <p>There is a problem that we need to fix. A wonderful serenity has taken possession of my
+                            entire
+                            soul,
+                            like these sweet mornings of spring which I enjoy with my whole heart.</p>
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <a class="btn btn-primary btn-sm" href="#">Detail</a>
+                            </div>
+                            <div>
+                                <small class="text-muted">22/12/2019 15:00</small>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <!-- /.col -->
             </div>
