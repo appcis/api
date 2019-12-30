@@ -19,20 +19,20 @@ Route::namespace('App')->middleware('auth')->group(function () {
         return view('blank');
     });
 
-    Route::resource('/grade', 'GradeController')
-        ->only(['index'])
+    Route::resource('/grade', 'GradeController')->only(['index'])
         ->middleware('can:manage-grades');
 
     Route::resource('/agent', 'AgentController')->middleware('can:manage-agents');
 
     Route::resource('/groupe', 'GroupeController')->middleware('can:manage-groupes');
 
+    Route::resource('/user', 'UserController')->middleware('can:manage-users');
+
+    Route::resource('/sms', 'SmsController')->except(['destroy', 'update', 'edit']);
+
     Route::get('/user/{user}/resetPassword', 'UserController@resetPassword')
         ->name('user.resetPassword')
         ->middleware('can:manage-users');
-    Route::resource('/user', 'UserController')->middleware('can:manage-users');
 
-    Route::resource('/sms', 'SmsController')
-        ->only(['create', 'store']);
 });
 

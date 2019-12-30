@@ -9,6 +9,18 @@ use Illuminate\Http\Request;
 
 class SmsController extends Controller
 {
+    private $service;
+
+    public function __construct()
+    {
+        //
+    }
+
+    public function index()
+    {
+        return view('sms.index');
+    }
+
     public function create()
     {
         if (config('app.fake_data')) {
@@ -17,5 +29,15 @@ class SmsController extends Controller
         }
 
         return view('sms.form', compact('agents', 'groupes'));
+    }
+
+    public function store()
+    {
+
+    }
+
+    public function show()
+    {
+        return view('sms.show');
     }
 }
